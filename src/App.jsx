@@ -6,7 +6,7 @@ function App() {
         <div className="container">
             <div className="chatbot-popup">
                 {/* {Header} */}
-                <div className="chat-header">
+                <div className="chatbot-header">
                     <div className="header-info">
                         <ChatbotIcon />
                         <h2 className="logo-text">Chatbot</h2>
