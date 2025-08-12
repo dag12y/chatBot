@@ -18,14 +18,14 @@ function App() {
 
                 {/* {Body} */}
                 <div className="chat-body">
-                    <ChatbotIcon />
-                    <div className="mesage bot-message">
+                    <div className="message bot-message">
+                        <ChatbotIcon />
                         <p className="message-text">
                             Hey there 👋 <br />
                             How can i help you?
                         </p>
                     </div>
-                    <div className="mesage user-message">
+                    <div className="message user-message">
                         <p className="message-text">
                             Lorem ipsum dolor sit amet, consectetur adipisicing
                         </p>
@@ -41,9 +41,7 @@ function App() {
                             className="message-input"
                             required
                         />
-                        <button className="down-arrow">
-                            ⬆️
-                        </button>
+                        <button className="down-arrow">⬆️</button>
                     </form>
                 </div>
             </div>
