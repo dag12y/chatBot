@@ -1,4 +1,5 @@
 import ChatbotIcon from "./components/ChatbotIcon";
+import ChatForm from './components/ChatForm'
 import downArrowImage from "/assets/downArrow.svg";
 
 function App() {
@@ -34,15 +35,7 @@ function App() {
 
                 {/* {Footer} */}
                 <div className="chat-footer">
-                    <form action="#" className="chat-form">
-                        <input
-                            type="text"
-                            placeholder="message ..."
-                            className="message-input"
-                            required
-                        />
-                        <button className="down-arrow">⬆️</button>
-                    </form>
+                    <ChatForm />
                 </div>
             </div>
         </div>
