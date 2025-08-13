@@ -1,8 +1,13 @@
+import { useState } from "react";
 import ChatbotIcon from "./components/ChatbotIcon";
 import ChatForm from './components/ChatForm'
+import ChatMessage from "./components/ChatMessage";
 import downArrowImage from "/assets/downArrow.svg";
 
 function App() {
+
+    const [chatHistory,setChatHistory]=useState([]);
+
     return (
         <div className="container">
             <div className="chatbot-popup">
@@ -26,16 +31,17 @@ function App() {
                             How can i help you?
                         </p>
                     </div>
-                    <div className="message user-message">
-                        <p className="message-text">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                        </p>
-                    </div>
+
+                    {/* {rendering chat history dynamically} */}
+                    {chatHistory.map((chat,index)=>(
+                        <ChatMessage key={index} chat={chat}/>
+                    ))}
+                    
                 </div>
 
                 {/* {Footer} */}
                 <div className="chat-footer">
-                    <ChatForm />
+                    <ChatForm setChatHistory={setChatHistory}/>
                 </div>
             </div>
         </div>
