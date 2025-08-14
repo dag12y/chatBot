@@ -1,19 +1,32 @@
 import { useState } from "react";
 import ChatbotIcon from "./components/ChatbotIcon";
-import ChatForm from './components/ChatForm'
+import ChatForm from "./components/ChatForm";
 import ChatMessage from "./components/ChatMessage";
 import downArrowImage from "/assets/downArrow.svg";
 
 function App() {
+    const [chatHistory, setChatHistory] = useState([]);
+    const [showChatbot, setshowChatbot] = useState(false);
 
-    const [chatHistory,setChatHistory]=useState([]);
-
-    function generateBotReponse(){
-
+    function generateBotReponse(history) {
+        console.log(history);
     }
 
     return (
-        <div className="container">
+        <div className={`container ${showChatbot ? "show-chatbot" : ""}`}>
+            <button
+                className="chatbot-toggler"
+                onClick={() => {
+                    setshowChatbot((prev) => !prev);
+                }}
+            >
+                <span>
+                    <i className="fas fa-comment"></i>
+                </span>
+                <span>
+                    <i className="fas fa-close"></i>
+                </span>
+            </button>
             <div className="chatbot-popup">
                 {/* {Header} */}
                 <div className="chatbot-header">
@@ -21,7 +34,12 @@ function App() {
                         <ChatbotIcon />
                         <h2 className="logo-text">Chatbot</h2>
                     </div>
-                    <button className="down-arrow">
+                    <button
+                        className="down-arrow"
+                        onClick={() => {
+                            setshowChatbot((prev) => !prev);
+                        }}
+                    >
                         <img src={downArrowImage} alt="down arrow" />
                     </button>
                 </div>
@@ -37,15 +55,18 @@ function App() {
                     </div>
 
                     {/* {rendering chat history dynamically} */}
-                    {chatHistory.map((chat,index)=>(
-                        <ChatMessage key={index} chat={chat}/>
+                    {chatHistory.map((chat, index) => (
+                        <ChatMessage key={index} chat={chat} />
                     ))}
-                    
                 </div>
 
                 {/* {Footer} */}
                 <div className="chat-footer">
-                    <ChatForm chatHistory={chatHistory} setChatHistory={setChatHistory} generateBotReponse={generateBotReponse}/>
+                    <ChatForm
+                        chatHistory={chatHistory}
+                        setChatHistory={setChatHistory}
+                        generateBotReponse={generateBotReponse}
+                    />
                 </div>
             </div>
         </div>
