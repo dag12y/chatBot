@@ -8,6 +8,10 @@ function App() {
 
     const [chatHistory,setChatHistory]=useState([]);
 
+    function generateBotReponse(){
+
+    }
+
     return (
         <div className="container">
             <div className="chatbot-popup">
@@ -41,7 +45,7 @@ function App() {
 
                 {/* {Footer} */}
                 <div className="chat-footer">
-                    <ChatForm setChatHistory={setChatHistory}/>
+                    <ChatForm chatHistory={chatHistory} setChatHistory={setChatHistory} generateBotReponse={generateBotReponse}/>
                 </div>
             </div>
         </div>
