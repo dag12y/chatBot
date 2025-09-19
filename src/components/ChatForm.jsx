@@ -19,7 +19,7 @@ export default function ChatForm({ chatHistory, setChatHistory, generateBotRepon
             ]);
             generateBotReponse([
                 ...chatHistory,
-                { role: "user", text: userMessage  },
+                { role: "user", text: `Using the deatils provided above, please address this query: ${userMessage}`  },
             ]);
         }, 600);
     }

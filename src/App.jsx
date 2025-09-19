@@ -3,17 +3,24 @@ import ChatbotIcon from "./components/ChatbotIcon";
 import ChatForm from "./components/ChatForm";
 import ChatMessage from "./components/ChatMessage";
 import downArrowImage from "/assets/downArrow.svg";
+import info from "./components/info";
 
 function App() {
-    const [chatHistory, setChatHistory] = useState([]);
+    const [chatHistory, setChatHistory] = useState([
+        {
+            hiddenInChat: true,
+            role: "model",
+            text: info,
+        },
+    ]);
     const [showChatbot, setshowChatbot] = useState(false);
     const chatBodyRef = useRef();
 
     async function generateBotReponse(history) {
-        function updateHistory(text,isError) {
+        function updateHistory(text, isError) {
             setChatHistory((prev) => [
                 ...prev.filter((msg) => msg.text !== "Thinking..."),
-                { role: "model", text,isError  },
+                { role: "model", text, isError },
             ]);
         }
 
@@ -46,16 +53,16 @@ function App() {
 
             updateHistory(apiResponseText);
         } catch (error) {
-            updateHistory(error.message,true)
+            updateHistory(error.message, true);
         }
     }
 
     useEffect(() => {
         chatBodyRef.current.scrollTo({
             top: chatBodyRef.current.scrollHeight,
-            behvior: "smooth",
+            behavior: "smooth", // Fixed spelling
         });
-    }, [chatHistory]);
+    }, [chatHistory,showChatbot]);
 
     return (
         <div className={`container ${showChatbot ? "show-chatbot" : ""}`}>
