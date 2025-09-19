@@ -141,6 +141,10 @@ body {
     gap: 10px;
 }
 
+.chat-body .message.error .message-text{
+    color: #ff0000;
+}
+
 .chat-body .message svg {
     width: 35px;
     height: 35px;

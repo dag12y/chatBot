@@ -19,7 +19,7 @@ export default function ChatForm({ chatHistory, setChatHistory, generateBotRepon
             ]);
             generateBotReponse([
                 ...chatHistory,
-                { role: "user", text: { userMessage } },
+                { role: "user", text: userMessage  },
             ]);
         }, 600);
     }

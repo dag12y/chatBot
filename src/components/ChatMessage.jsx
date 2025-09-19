@@ -5,7 +5,7 @@ function ChatMessage({ chat }) {
         <div
             className={`message ${
                 chat.role === "model" ? "bot" : "user"
-            }-message`}
+            }-message ${chat.isError ? "error":""}`}
         >
             {chat.role === "model" && <ChatbotIcon />}
             <p className="message-text">{chat.text}</p>
